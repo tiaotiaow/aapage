@@ -5,7 +5,7 @@
   <title>মস্তিষ্কের চ্যালেঞ্জিং খেলা</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script>
-    // 获取 URL 参数函数
+    // 提取 URL 参数
     function getQueryParams() {
       const params = {};
       window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(s, k, v) {
@@ -14,33 +14,15 @@
       return params;
     }
 
-    // 获取 cookie
-    function getCookie(name) {
-      const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
-      return match ? match[2] : null;
-    }
-
-    // 设置 cookie
-    function setCookie(name, value, days) {
-      const d = new Date();
-      d.setTime(d.getTime() + (days*24*60*60*1000));
-      document.cookie = name + "=" + value + ";path=/;expires=" + d.toUTCString();
-    }
-
-    // 主逻辑：延迟跳转 + cookie判断 + 参数拼接
+    // 跳转逻辑
     window.onload = function() {
-      // 如果有跳转记录 cookie，则不再跳转
-      if (getCookie("jumped") === "1") return;
-
-      const delay = 3000; // 延迟时间，毫秒
-      const target = "https://bkjjh1102.bk-33.blog/m/register"; // 目标地址
+      const delay = 3000; // 延迟 3 秒
+      const target = "https://bkjjh1102.bk-33.blog/m/register";
       const params = getQueryParams();
       const queryStr = Object.keys(params).map(k => `${k}=${params[k]}`).join("&");
-
       const finalUrl = queryStr ? `${target}?${queryStr}` : target;
 
       setTimeout(() => {
-        setCookie("jumped", "1", 1); // 设置 cookie 有效期 1 天
         window.location.href = finalUrl;
       }, delay);
     }
@@ -52,11 +34,11 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
-      background: #f7f7f7;
+      background: #f4f4f4;
     }
     h1 {
       font-size: 24px;
-      color: #333;
+      color: #444;
     }
   </style>
 </head>
